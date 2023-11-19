@@ -371,7 +371,7 @@ footer{
 .buttons{
     padding: 0.8em 1.8em;
  border: 2px solid white;
- border-radius: 30px;
+ border-radius: 25px;
  position: relative;
  overflow: hidden;
  background-color: transparent;
@@ -403,5 +403,5 @@ footer{
    }
    
    .buttons:hover {
-    color: #111;
+    color: #070606;
    }
