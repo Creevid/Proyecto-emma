@@ -1,0 +1,407 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+
+
+.banner{
+    position: relative;
+    widows:100%;
+    height: calc(108vh - 50px);
+    background-image: url(../home/sources/imagen-principal.JPG);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.capa{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 40, 0.75);
+}
+
+.contenido{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: left;
+
+}
+
+.contenido h1{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.contenido .Emma{
+    color: white;
+    font-size: 50px;
+    margin-left: 20px;
+}
+
+.contenido p{
+    margin: 20px;
+    font-size: 20px ;
+    margin-bottom: 20px;
+}
+
+.contenido .button{
+    text-decoration: none;
+    color: white;
+    padding: 9px 20px;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    border-radius: 10%;
+    transition: all .3s ease-in-out;
+    width: 150px;
+    
+    
+}
+
+.contenido .button:hover{
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+}
+
+.opciones{
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    height: 70px;
+    background-color: transparent;
+    top: -20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+   
+}
+
+.cubo{
+    width: 50px;
+    height: 200px;
+   
+}
+
+.opciones h1{
+    color: white;
+    margin-top: 20px;
+}
+
+.opciones img{
+    
+    margin-top: 20px;
+}
+
+.boton{
+    display: flex;
+    align-items: left;
+    margin-left: 20px;
+}
+
+
+.opciones ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 50px 50px;
+    font-size: 20px ;
+}
+
+.opciones ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.opciones ul li a:hover{
+    color: blue;
+    transition: .3s;
+}
+
+.opciones button{
+    border: none;
+    background: blue;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .3s;
+    margin-right: 20px;
+}
+
+.opciones button:hover{
+ transform: scale(1.2);
+ cursor: pointer;
+}
+
+
+
+.card, .carda, .cardb, .cardc {
+    max-width: 300px;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover, .carda:hover, .cardb:hover, .cardc:hover {
+    transform: scale(1.05);
+}
+
+
+
+.card a {
+    text-decoration: none
+}
+
+.content {
+    padding: 1.1rem;
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(239, 205, 255);
+}
+
+.title {
+    color: #111827;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.desc {
+    margin-top: 0.5rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.action {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: #2563EB;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.action span {
+    transition: .3s ease;
+}
+
+.action:hover span {
+    transform: translateX(4px);
+}
+
+.cards {
+ margin-left: 20px;
+ display: flex;
+}
+
+h1{
+    margin-left: 20px;
+}
+
+body {
+    background-color: #e8e8e8;
+}
+
+::-webkit-scrollbar{
+    width: 0.6rem;
+    background: #111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #2563eb;
+    border-radius: 5rem;
+}
+
+.logo{
+    margin-left: 0px;
+}
+
+.notimg{
+    width: 800px;
+    height: 500px;
+    background-color: rgb(239, 205, 255);
+    margin-left: 20px;
+}
+
+.not{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: end;
+    margin-bottom: 80px;
+}
+
+.nottitle h1 {
+    font-size: 50px; 
+    margin-bottom: 70px;
+    margin-top: 70px;
+
+    
+  }
+
+.notcontent p{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+}
+
+h1{
+    font-size: 50px;
+}
+
+footer{
+    width: 100%;
+    padding: 50px 0px;
+    background-image: url(../Images/background-footer.svg);
+    background-size: cover;
+
+    /*background-color: #d0f0f8;
+    -webkit-mask-image: url("../Images/background-footer.svg");
+    mask-image: url("../Images/background-footer.svg");
+    -webkit-mask-size: cover;
+    mask-size: cover;*/
+}
+
+.container__footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.box__footer{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.box__footer .logo img{
+    width: 180px;
+}
+
+.box__footer .terms{
+    max-width: 350px;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #7a7a7a;
+    font-size: 18px;
+}
+
+.box__footer h2{
+    margin-bottom: 30px;
+    color: #343434;
+    font-weight: 700;
+}
+
+.box__footer a{
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+
+.box__footer a:hover{
+    opacity: 0.8;
+}
+
+.box__footer a .fab{
+    font-size: 20px;
+}
+
+.box__copyright{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.box__copyright p{
+    margin-top: 20px;
+    color: #7a7a7a;
+}
+
+.box__copyright hr{
+    border: none;
+    height: 1px;
+    background-color: #7a7a7a;
+}
+
+.hide{
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.buttons{
+    padding: 0.8em 1.8em;
+ border: 2px solid white;
+ border-radius: 30px;
+ position: relative;
+ overflow: hidden;
+ background-color: transparent;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 16px;
+ transition: .3s;
+ z-index: 1;
+ font-family: inherit;
+ color: white;
+}
+
+.buttons::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: white;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .buttons:hover::before {
+    width: 105%;
+   }
+   
+   .buttons:hover {
+    color: #111;
+   }
