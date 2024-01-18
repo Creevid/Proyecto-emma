@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.opciones {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background: rgba(0, 0, 40, 0.75);
+}
+
+.opciones ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 50px 50px;
+    font-size: 20px;
+}
+
+.opciones ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.opciones ul li a:hover {
+    font-size: 25px;
+    transition: .3s;
+}
+
+.opciones button {
+    border: none;
+    background: blue;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .3s;
+    margin-right: 20px;
+}
+
+.opciones button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.banner {
+    position: relative;
+    widows: 100%;
+    height: calc(108vh - 50px);
+    background-image: url(./sources/graduado.jpg);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 40px;
+
+}
+
+.frase {
+    width: 600px;
+    height: 254px;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 0 auto;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.shadow {
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgb(190, 190, 190),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.prom{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-x: auto;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin: 0 auto;
+}
+
+.promo {
+    box-sizing: border-box;
+    width: 190px;
+    height: 254px;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(0);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .promo:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+    backdrop-filter: blur(6px);
+  }
+  
+  .promo:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+
+  h1{
+    margin-left: 20px; 
+  }
+
+ /* Estilos para pantallas más pequeñas que 600 píxeles de ancho */
+@media screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;    
+    }
+
+    .frase{
+        width: 300px;
+        height: 500px;
+    }
+
+    .promo{
+        width: 200px;
+        height: 164px;
+        
+    }
+
+    
+}
+
+/* Estilos para pantallas entre 601 y 1024 píxeles de ancho */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    body {
+        background-color: lightgreen;
+    }
+}
