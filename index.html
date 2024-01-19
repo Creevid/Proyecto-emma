@@ -7,62 +7,57 @@
     <link rel="stylesheet" href="/home/principal.css">
     <title>Emma Balaguer</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+    
 </head>
 
 <body>
-    <div class="banner">
-
-        <div class="capa">
-
-            <div class="opciones">
-
-                <img src="../home/sources/logo.png" alt="" height="70px" class="logo">
-                <ul>
-
-                    <li> <a href="#" id="noticiasLink">Noticias</a></li>
-                    <li> <a href="#">Eventos</a></li>
-                    <li> <a href="#">Contactos</a></li>
+    <div class="header">
+        <div class="navbar">
+            <img src="../home/sources/logo.png" alt="" class="logo">
+            <nav>
+                <ul class='nav-bar'>
+                    <input type='checkbox' id='check' />
+                    <span class="menu">
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#" class="menu-item" id="enlaceArchivo">Egresados</a></li>
+                        <li><a href="">Subir informacion</a></li>
+                        <li><a href="">Desarrolladores</a></li>
+                        <li><a href="">Youtube</a></li>
+                        <button type="button" id="uploadInfo">Subir Información</button>
+                        <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                    </span>
+                    <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
                 </ul>
-                <button type="button" id="irAOtroArchivo"> Subir informacion</button>
-
+            </nav>
+            
+        </div>
+    
+        <div class="menuOverlay" id="menuOverlay">
+        </div>
+    
+        <div class="content">
+            <h1>Bienvenido al centro educativo</h1>
+            <h1 class="Emma">EMMA Balaguer</h1>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br> incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            </p>
+            <div class="button">
+                <button href="#" class="buttons" id="hideText_btn">LEER MÁS </button>
             </div>
-
-
-            <div class="contenido">
-                <h1>Bienvenido al centro educativo</h1>
-                <h1 class="Emma">EMMA Balaguer</h1>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br> incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure<br> dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-                <span class="hide" id="hideText">
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br> incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure<br> dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                </span>
-                <div class="boton">
-                    <button href="#" class="buttons" id="hideText_btn">LEER MASS </button>
-                </div>
-
-
-            </div>
-
-
         </div>
     </div>
-    </div>
-    <script src="/home/yes.js"></script>
+    
 
     <br>
-    <h1 class="NOTICIAS">NOTICIAS</h1>
+    <h1 class="news-heading">NOTICIAS</h1>
     <br>
 
-    <div class="not">
+    <script src="home/yes.js"></script>
+
+    <div class="news">
         <div class="notimg"></div>
-        <div class="nottxt">
+        <div class="notcontent">
             <div class="nottitle">
                 <h1>Noticia principal</h1>
             </div>
@@ -75,7 +70,7 @@
         </div>
     </div>
 
-    <div class="cards" id="noticiasContainer">
+    <div class="cards" id="newsContainer">
         <div class="card">
             <div class="image"></div>
             <div class="content">
@@ -91,7 +86,7 @@
                 </p>
 
                 <a class="action" href="#">
-                    Leer mas
+                    Leer más
                     <span aria-hidden="true">
                         →
                     </span>
@@ -114,7 +109,7 @@
                 </p>
 
                 <a class="action" href="#">
-                    Leer mas
+                    Leer más
                     <span aria-hidden="true">
                         →
                     </span>
@@ -137,7 +132,7 @@
                 </p>
 
                 <a class="action" href="#">
-                    Leer mas
+                    Leer más
                     <span aria-hidden="true">
                         →
                     </span>
@@ -160,7 +155,7 @@
                 </p>
 
                 <a class="action" href="#">
-                    Leer mas
+                    Leer más
                     <span aria-hidden="true">
                         →
                     </span>
@@ -168,53 +163,43 @@
             </div>
         </div>
 
-
     </div>
 
     <footer>
-
         <div class="container__footer">
+            <div class="box__footer" id="information">
+                <div class="information">
+                    <h2>Información</h2>
+                    <a href="#">Acerca de</a>
+                    <a href="#">Procesos</a>
+                    <a href="#">Servicios</a>
+                    <a href="https://www.google.com/maps/dir/18.556161,-69.847828/emma+balaguer+de+vallejo/@18.5582606,-69.8646341,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x8eaf85fe3b3a607b:0xf1c37127f64b5f8b!2m2!1d-69.8557758!2d18.5465116?entry=ttu">Ubicación</a>
+                </div>
+            </div>
+    
             <div class="box__footer">
                 <div class="logo">
                     <img src="/home/sources/logon.png" alt="">
                 </div>
-                <div class="terms">
-                    <p>© 2023 Escuela Emma Balaguer de Vallejo. Todos los derechos reservados. El contenido de este
-                        sitio web, incluyendo pero no limitado a textos, imágenes, logotipos, y diseño, está protegido
-                        por las leyes de derechos de autor y otras leyes de propiedad intelectual.</p>
+            </div>
+    
+            <div class="box__footer" id="social">
+                <div class="social-icons">
+                    <h2>Redes Sociales</h2>
+                    <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
                 </div>
             </div>
-
-
-            <div class="box__footer">
-                <h2>Informacion</h2>
-                <a href="#">Acerca de</a>
-                <a href="#">Procesos</a>
-                <a href="#">Servicios</a>
-                <a
-                    href="https://www.google.com/maps/dir/18.556161,-69.847828/emma+balaguer+de+vallejo/@18.5582606,-69.8646341,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x8eaf85fe3b3a607b:0xf1c37127f64b5f8b!2m2!1d-69.8557758!2d18.5465116?entry=ttu">ubicacion</a>
-            </div>
-
-            <div class="box__footer">
-                <h2>Redes Sociales</h2>
-                <a href="#"> <i class="fab fa-facebook-square"></i> Facebook</a>
-                <a href="#"><i class="fab fa-twitter-square"></i> Twitter</a>
-                <a href="#"><i class="fab fa-linkedin"></i>Tiktok</a>
-                <a href="#"><i class="fab fa-instagram-square"></i> Instagram</a>
-            </div>
-
         </div>
-
+    
         <div class="box__copyright">
             <hr>
             <p>Todos los derechos reservados © 2021 <b>EMMA BALAGUER DE VALLEJO</b></p>
         </div>
     </footer>
-
-
-
-
-
+    
 </body>
 
 </html>
