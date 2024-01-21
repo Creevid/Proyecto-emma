@@ -123,7 +123,7 @@ body {
     font-size: 20px;
 }
 
-.header .navbar button {
+.header .nav-bar button {
     border: none;
     background: blue;
     padding: 12px 30px;
@@ -131,8 +131,25 @@ body {
     color: white;
     font-weight: bold;
     font-size: 15px;
+    transition: .3s;
+}
+
+.header .nav-bar button:hover {
+    transform: scale(1.2);
     cursor: pointer;
-    margin-left: 70px;
+}
+
+.header .nav-bar button {
+    border: none;
+    background: blue;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .3s;
+    margin-left: 20px;
+
 }
 
 /* Contenido en el header */
