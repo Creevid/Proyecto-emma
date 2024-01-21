@@ -24,4 +24,11 @@ document.getElementById("enlaceArchivo").addEventListener("click", function() {
 document.getElementById("Inicio").addEventListener("click", function() {
   // Cambiar la ubicación a tu archivo deseado (por ejemplo, "otras_carpetas/archivo_deseado.html")
   window.location.href = "index.html";
-        });
+});
+
+window.onload = function() {
+  var dropdown = document.querySelector('.menuVertical');
+  dropdown.addEventListener('click', function() {
+      dropdown.classList.toggle('show');
+  });
+}

@@ -1,4 +1,3 @@
-/* Reset de estilos para elementos básicos */
 * {
     padding: 0;
     margin: 0;
@@ -11,6 +10,80 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #e8e8e8;
+}
+
+.menu .menuVertical {
+    display: none;
+    position: absolute;
+    background: transparent;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background: rgba(0, 0, 40, 0.75);
+    
+}
+
+.menu .menuVertical a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    margin-left: 0;
+    padding: 10px 0;
+}
+
+.menu .menuVertical a:hover {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+/* Oculta el menú vertical por defecto */
+.menu .menuVertical:not(.show) {
+    display: none;
+}
+
+/* Muestra el menú vertical solo cuando se pasa el mouse sobre dropdown-toggle */
+.menu .dropdown:hover .menuVertical {
+    display: flex;
+}
+
+.menu .dropdowns:hover .menuVertical {
+    display: flex;
+}
+
+
+.show {
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        flex-direction: column; /* Cambiamos la dirección a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alineamos a la izquierda */
+    }
+
+    .menu .navbar {
+        width: 100%;
+    }
+
+    .menu .navbar ul {
+        flex-direction: column; /* Cambiamos la dirección a columna en pantallas pequeñas */
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu .navbar li {
+        margin: 10px 0; /* Añadimos margen superior e inferior para separar las opciones */
+    }
+
+    .menu .dropdown:hover .menuVertical {
+        display: block;
+        position: static; /* Cambiamos la posición a estática para que se muestre debajo del texto */
+    }
+
+    .menu .dropdowns:hover .menuVertical {
+        display: block;
+        position: static; /* Cambiamos la posición a estática para que se muestre debajo del texto */
+    }
 }
 
 /* Sección de la cabecera (header) */
@@ -32,13 +105,11 @@ body {
     left: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     padding: 20px;
 }
 
 .header .navbar .logo {
-    margin-left: 20px;
     max-height: 70px;
 }
 
@@ -48,7 +119,8 @@ body {
 }
 
 .header .navbar ul li {
-    margin: 0 10px;
+    margin: 0 24px;
+    font-size: 20px;
 }
 
 .header .navbar button {
@@ -60,6 +132,7 @@ body {
     font-weight: bold;
     font-size: 15px;
     cursor: pointer;
+    margin-left: 70px;
 }
 
 /* Contenido en el header */
@@ -307,7 +380,7 @@ body {
 .carda,
 .cardb,
 .cardc {
-    max-width: calc(50% - 20px);
+    max-width: calc(25% - 20px);
     border-radius: 0.5rem;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -610,6 +683,7 @@ body {
     background-color: var(--color2);
     padding: 12px 20px;
     color: white;
+    margin-left: 67px;
 }
 .logo img {width: 40px;}
 .menu {display: flex;}

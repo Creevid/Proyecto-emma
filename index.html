@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="/home/principal.css">
     <title>Emma Balaguer</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -19,35 +20,49 @@
                 <ul class='nav-bar'>
                     <input type='checkbox' id='check' />
                     <span class="menu">
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#" class="menu-item" id="enlaceArchivo">Egresados</a></li>
-                        <li><a href="">Subir informacion</a></li>
-                        <li><a href="">Desarrolladores</a></li>
-                        <li><a href="">Youtube</a></li>
+                        <li><a href="./Nosotros/Index.html">Nosotros</a></li>
+                        <li class="dropdowns">
+                            <a href="#" class="dropdown-toggle">Egresados</a>
+                            <ul class="menuVertical">
+                                <li><a href="./egresados/primaria/primaria.html">Primaria</a></li>
+                                <li><a href="./egresados/politecnico/politecnico.html">Politecnico</a></li>
+                                <li><a href="./egresados/nocturno/nocturno.html">Nocturno</a></li>
+                            </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Redes Sociales</a>
+                            <ul class="menuVertical">
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">TikTok</a></li>
+                                <li><a href="#">Youtube</a></li>
+                            </ul>
+                        <li><a href="#">Noticias</a></li>
+                        </li>
                         <button type="button" id="uploadInfo">Subir Información</button>
                         <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
                     </span>
                     <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
                 </ul>
             </nav>
-            
+
         </div>
-    
+
         <div class="menuOverlay" id="menuOverlay">
         </div>
-    
+
         <div class="content">
             <h1>Bienvenido al centro educativo</h1>
-            <h1 class="Emma">EMMA Balaguer</h1>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br> incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            <h1 class="Emma">EMMA BALAGUER</h1>
+            <p>En la Escuela Emma Balaguer de Vallejo, nos guiamos por nuestro eslogan "Educar para
+                amar". Como institución, fomentamos el desarrollo integral de nuestros estudiantes,
+                cultivando el amor por el conocimiento.
             </p>
             <div class="button">
-                <button href="#" class="buttons" id="hideText_btn">LEER MÁS </button>
+                <button href="./Nosotros/Index.html" class="buttons" id="myButton">LEER MÁS </button>
             </div>
         </div>
     </div>
-    
+
 
     <br>
     <h1 class="news-heading">NOTICIAS</h1>
@@ -173,16 +188,17 @@
                     <a href="#">Acerca de</a>
                     <a href="#">Procesos</a>
                     <a href="#">Servicios</a>
-                    <a href="https://www.google.com/maps/dir/18.556161,-69.847828/emma+balaguer+de+vallejo/@18.5582606,-69.8646341,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x8eaf85fe3b3a607b:0xf1c37127f64b5f8b!2m2!1d-69.8557758!2d18.5465116?entry=ttu">Ubicación</a>
+                    <a
+                        href="https://www.google.com/maps/dir/18.556161,-69.847828/emma+balaguer+de+vallejo/@18.5582606,-69.8646341,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x8eaf85fe3b3a607b:0xf1c37127f64b5f8b!2m2!1d-69.8557758!2d18.5465116?entry=ttu">Ubicación</a>
                 </div>
             </div>
-    
+
             <div class="box__footer">
                 <div class="logo">
                     <img src="/home/sources/logon.png" alt="">
                 </div>
             </div>
-    
+
             <div class="box__footer" id="social">
                 <div class="social-icons">
                     <h2>Redes Sociales</h2>
@@ -193,13 +209,13 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="box__copyright">
             <hr>
             <p>Todos los derechos reservados © 2021 <b>EMMA BALAGUER DE VALLEJO</b></p>
         </div>
     </footer>
-    
+
 </body>
 
 </html>
