@@ -114,29 +114,80 @@ body {
 
 }
 
-.frase {
-    width: 600px;
+.card {
+    width: 400px;
     height: 254px;
-    background: white;
-    border-radius: 10px;
-    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin: 0 auto;
-    margin-bottom: 50px;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
+    transition: all 0.2s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    margin-top: 60px;
+  }
+  
+  .card-inner {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
 
-.shadow {
-    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-        0 0 0 2px rgb(190, 190, 190),
-        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-}
+  
+  .circle {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(blue, #71b8fc);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+  }
+  
+  .circle:nth-child(1) {
+    top: -25px;
+    left: -35px;
+  }
+  
+  .circle:nth-child(2) {
+    bottom: -45px;
+    right: -50px;
+    animation-name: move-down1;
+  }
+
+  .card-inner p{
+    font-size: 20px;
+  }
+  
+  @keyframes move-up6 {
+    to {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes move-down1 {
+    to {
+      transform: translateY(10px);
+    }
+  }
 
 .prom{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-x: auto;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin: 0 auto;
+}
+
+.prom1{
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
@@ -166,8 +217,7 @@ body {
     color: black;
     margin-right: 20px;
     margin-bottom: 20px;
-    
-  }
+}
   
   .promo:hover {
     border: 1px solid black;
@@ -180,7 +230,11 @@ body {
   }
 
   h1{
-    margin-left: 20px; 
+    margin-left: 20px;
+  }
+
+  .pr{
+    margin-top:450px; 
   }
 
  /* Estilos para pantallas más pequeñas que 600 píxeles de ancho */
