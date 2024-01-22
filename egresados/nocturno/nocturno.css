@@ -134,6 +134,69 @@ body {
 
 }
 
+.card {
+    width: 400px;
+    height: 254px;
+    transition: all 0.2s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    margin-top: 60px;
+  }
+  
+  .card-inner {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+
+  
+  .circle {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(blue, #71b8fc);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+  }
+  
+  .circle:nth-child(1) {
+    top: -25px;
+    left: -35px;
+  }
+  
+  .circle:nth-child(2) {
+    bottom: -45px;
+    right: -50px;
+    animation-name: move-down1;
+  }
+
+  .card-inner p{
+    font-size: 20px;
+  }
+  
+  @keyframes move-up6 {
+    to {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes move-down1 {
+    to {
+      transform: translateY(10px);
+    }
+  }
+
 .estudiantes {
     display: flex;
     flex-wrap: wrap;
@@ -154,6 +217,7 @@ body {
 
 .promo{
     margin-left: 20px;
+    margin-top: 450px;
 }
 
 ::-webkit-scrollbar {
