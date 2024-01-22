@@ -137,6 +137,9 @@ body {
 .header .nav-bar button:hover {
     transform: scale(1.2);
     cursor: pointer;
+    background-color: white;
+    color: blue;
+    border: 1px solid blue;
 }
 
 .header .nav-bar button {
@@ -712,7 +715,16 @@ background-color: #1d00a0;
     background-color: var(--color1);
     transition: 0.15s ease-in-out;
 }
-.menu li a:hover:after {width: 100%;}
+.menu li a:hover:after {
+    width: 100%;
+}
+
+.menu li a:hover{
+   color: rgb(18, 18, 50);
+   background-color: white;
+   font-size: 25px;
+   transform: .3;
+}
 .open-menu , .close-menu {
     position: absolute;
     color: var(--color1);
