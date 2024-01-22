@@ -12,87 +12,13 @@ body {
     background-color: #e8e8e8;
 }
 
-.menu .menuVertical {
-    display: none;
-    position: absolute;
-    background: transparent;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    background: rgba(0, 0, 40, 0.75);
-    
-}
-
-.menu .menuVertical a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    display: block;
-    margin-left: 0;
-    padding: 10px 0;
-}
-
-.menu .menuVertical a:hover {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-/* Oculta el menú vertical por defecto */
-.menu .menuVertical:not(.show) {
-    display: none;
-}
-
-/* Muestra el menú vertical solo cuando se pasa el mouse sobre dropdown-toggle */
-.menu .dropdown:hover .menuVertical {
-    display: flex;
-}
-
-.menu .dropdowns:hover .menuVertical {
-    display: flex;
-}
-
-
-.show {
-    display: block;
-}
-
-@media only screen and (max-width: 768px) {
-    .menu {
-        flex-direction: column; /* Cambiamos la dirección a columna en pantallas pequeñas */
-        align-items: flex-start; /* Alineamos a la izquierda */
-    }
-
-    .menu .navbar {
-        width: 100%;
-    }
-
-    .menu .navbar ul {
-        flex-direction: column; /* Cambiamos la dirección a columna en pantallas pequeñas */
-        width: 100%;
-        text-align: left;
-    }
-
-    .menu .navbar li {
-        margin: 10px 0; /* Añadimos margen superior e inferior para separar las opciones */
-    }
-
-    .menu .dropdown:hover .menuVertical {
-        display: block;
-        position: static; /* Cambiamos la posición a estática para que se muestre debajo del texto */
-    }
-
-    .menu .dropdowns:hover .menuVertical {
-        display: block;
-        position: static; /* Cambiamos la posición a estática para que se muestre debajo del texto */
-    }
-}
-
 /* Sección de la cabecera (header) */
 .header {
     text-align: center;
     position: relative;
     width: 100%;
     height: calc(108vh - 50px);
-    background-image: url('../login/sources/img1.JPG');
+    background-image: url('../Nosotros/sources/imagen-principal.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -100,28 +26,41 @@ body {
 
 /* Opciones en el header (logo, menú, botón) */
 .header .navbar {
-    position: absolute;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background: transparent;
     top: 0;
-    left: 0;
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 20px;
+    justify-content: space-between;
+    z-index: 1000;
+    background: rgba(0, 0, 40, 0.75);
 }
 
 .header .navbar .logo {
     max-height: 70px;
 }
 
-.header .navbar ul {
-    display: flex;
-    list-style: none;
-}
 
 .header .navbar ul li {
-    margin: 0 24px;
-    font-size: 20px;
+    list-style-type: none;
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 20px;
 }
+
+.header .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .header .navbar ul li a:hover {
+    font-size: 22px;
+    transition: .3s;
+  }
+  
 
 .header .nav-bar button {
     border: none;
@@ -281,66 +220,167 @@ body {
 }
 
 /* Nuevos estilos para el menú emergente */
-.menuOverlay {
+.menu .menuVertical {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
-
-.menu-content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    background-color: #333;
-    padding: 20px;
-    color: white;
-    box-sizing: border-box;
-    z-index: 2;
-}
-
-.menu-items {
-    display: flex;
-    flex-direction: column;
-}
-
-.menu-items a {
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.menu-items a:hover {
-    text-decoration: underline;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    background: transparent;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background: rgba(0, 0, 40, 0.75);
+    
 }
 
-.menuOverlay.show {
+.menu .menuVertical a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    margin-left: 0;
+    padding: 10px 0;
+}
+
+.menu .menuVertical a:hover {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+/* Oculta el menú vertical por defecto */
+.menu .menuVertical:not(.show) {
+    display: none;
+}
+
+/* Muestra el menú vertical solo cuando se pasa el mouse sobre dropdown-toggle */
+.menu .dropdown:hover .menuVertical {
+    display: flex;
+}
+
+.menu .dropdowns:hover .menuVertical {
+    display: flex;
+}
+
+
+.show {
     display: block;
 }
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: var(--color2);
+    padding: 12px 20px;
+    color: white;
+    margin-left: 67px;
+}
+.logo img {width: 40px;}
+.menu {display: flex;}
+.menu li {padding-left: 30px;}
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color1);
+    text-align: center;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
+    color: white;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color1);
+    transition: 0.15s ease-in-out;
+}
+.menu li a:hover:after {
+    width: 100%;
+}
+
+.menu li a:hover{
+    font-size: 22px;
+    transition: .3s;
+}
+.open-menu , .close-menu {
+    position: absolute;
+    color: var(--color1);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.close-menu {
+    top: 20px;
+    right: 20px;
+}
+#check {display: none;}
+@media(max-width: 610px){
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background-color: black;
+        transition: all 0.2s ease-in-out;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu , .close-menu {display: block;}
+    #check:checked ~ .menu {right: 0;}
+}
+
+
+@media only screen and (max-width: 425px) {
+    .menu {
+        flex-direction: column; /* Cambiamos la dirección a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alineamos a la izquierda */
+    }
+
+    .menu .navbar {
+        width: 100%;
+    }
+
+    .menu .navbar ul {
+        flex-direction: column; /* Cambiamos la dirección a columna en pantallas pequeñas */
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu .navbar li {
+        margin: 10px 0; /* Añadimos margen superior e inferior para separar las opciones */
+    }
+
+    .menu .dropdown:hover .menuVertical {
+        display: block;
+        position: static; /* Cambiamos la posición a estática para que se muestre debajo del texto */
+    }
+
+    .menu .dropdowns:hover .menuVertical {
+        display: block;
+        position: static; /* Cambiamos la posición a estática para que se muestre debajo del texto */
+    }
+}
+
 
 /* Estilos para la versión móvil o pantallas pequeñas */
 @media only screen and (max-width: 768px) {
     .menu-content {
         width: 98%;
+        margin-left: 2%; /* Ajusta este valor según tus necesidades */
     }
 
     .close-btn {
@@ -501,131 +541,156 @@ body {
 
 
 /* Sección del pie de pagina (footer) */
-.container__footer{
-    max-width: 1200px;
-    margin: 0 auto;
 
+footer{
+    background-color: #000000;
 }
 
-.footer{
+.container__footer {
     background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 50px;
 }
 
-.footer-row{
+.container__footer {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     flex-wrap: wrap;
 }
 
-.footer-links{
-   width: 25%;
-   padding: 0 15px;
+.box__footer {
+    flex-basis: calc(33.33% - 10px); 
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
-.footer-links h4{
-    font-size: 20px;
-    color: white;
-    margin-bottom: 25px;
-    font-weight: 500;
-    border-bottom: 2px solid #0003cc;
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-
-.footer-links ul li a{
-    font-size: 18px;
-    text-decoration: none;
-    color: white;
-    display: block;
+.box__footer h2 {
     margin-bottom: 15px;
-    transition: all .3s ease;
-
-
+    color: white; /* Color blanco para los títulos h2 */
 }
 
-
-.footer-links ul li a:hover{
-    color: #ffffff;
-    padding-left: 6px;
+.box__footer ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; 
 }
 
-
-
-.social-links a {
-  display: inline-block;
-  min-height: 40px;
-  width: 400px;
-  background-color: #333;
-  margin: 0 10px 10px 0;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-  color: #ffffff;
-  transition: all .5s ease;
+.box__footer li {
+    margin-bottom: 1px;
+    font-size: 20px;
+    color: white; /* Color blanco para los elementos de la lista */
 }
 
-.derechos{
+.box__footer a {
     color: white;
+    text-decoration: none;
+}
+
+.box__footer a:hover {
+    text-decoration: underline;
+}
+
+.box__footer .logo {
     text-align: center;
-    
 }
 
-.social-links a:hover{
-background-color: #1d00a0;
+.box__footer .logo img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
 }
 
-@media(max-width:991px){
-    .footer-row{
-        text-align: center;
-    }
+.box__footer #social {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 24px;
+    padding-top: 40px;
+    order: 3; 
+}
 
+.box__footer .social-icons {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    margin-top: 20px;
+}
 
-    .footer-links{
-        width: 100%;
-        margin-bottom: 30px;
-    }
+.box__footer .social-icons a {
+    color: white;
+    font-size: 20px;
+}
+
+.box__footer .information {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 10%; 
+    text-align: center; 
+}
+
+.box__footer .information a {
+    margin-bottom: 10px;
+}
+
+.box__copyright {
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: 20px;
+    color: white; /* Color blanco para el texto del pie de página */
 }
 
 
-/* Media queries */
-@media screen and (min-width: 768px) {
-    .footer {
-        flex-direction: row;
+/* Estilos para pantallas pequeñas o móviles */
+@media screen and (max-width: 768px) {
+    .container__footer {
+        flex-direction: column;
+        align-items: center;
     }
 
     .box__footer {
-        flex-basis: 33.33%;
+        flex-basis: 100%; /* Ocupar el ancho completo en pantallas pequeñas */
         margin: 0; 
     }
 
     .box__footer #social {
-        order: 3;
-        align-items: center;
+        align-items: flex-start; /* Alineado a la izquierda en pantallas pequeñas */
     }
   
+    .box__footer .information {
+        margin: 0; /* Eliminamos el margen en pantallas pequeñas */
+        text-align: center; 
+    }
+}
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 769px) {
     .container__footer {
-        justify-content: space-around;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .box__footer {
+        flex-basis: calc(33.33% - 10px); 
+        margin-bottom: 30px;
+    }
+
+    .box__footer #social {
+        align-items: flex-end;
     }
 
     .box__footer .information {
-        margin-right: 0;
-        margin-left: auto; 
+        margin-left: 10%; 
     }
 }
-
-@media screen and (max-width: 1024px) {
-    .box__footer {
-        margin: 0; 
-    }
-}
-
-@media screen and (max-width: 425px) {
-    .box__footer .logo {
-        align-self: center; 
-    }
-}
-
 
 
 
@@ -679,85 +744,3 @@ background-color: #1d00a0;
     border-radius: 5rem;
 }
 
-
-.nav-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    position: relative;
-    background-color: var(--color2);
-    padding: 12px 20px;
-    color: white;
-    margin-left: 67px;
-}
-.logo img {width: 40px;}
-.menu {display: flex;}
-.menu li {padding-left: 30px;}
-.menu li a {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--color1);
-    text-align: center;
-    transition: 0.15s ease-in-out;
-    position: relative;
-    text-transform: uppercase;
-    color: white;
-}
-.menu li a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--color1);
-    transition: 0.15s ease-in-out;
-}
-.menu li a:hover:after {
-    width: 100%;
-}
-
-.menu li a:hover{
-   color: rgb(18, 18, 50);
-   background-color: white;
-   font-size: 25px;
-   transform: .3;
-}
-.open-menu , .close-menu {
-    position: absolute;
-    color: var(--color1);
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: none;
-}
-.open-menu {
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-.close-menu {
-    top: 20px;
-    right: 20px;
-}
-#check {display: none;}
-@media(max-width: 610px){
-    .menu {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 100;
-        background-color: black;
-        transition: all 0.2s ease-in-out;
-    }
-    .menu li {margin-top: 40px;}
-    .menu li a {padding: 10px;}
-    .open-menu , .close-menu {display: block;}
-    #check:checked ~ .menu {right: 0;}
-}
