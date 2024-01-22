@@ -114,80 +114,29 @@ body {
 
 }
 
-.card {
-    width: 400px;
+.frase {
+    width: 600px;
     height: 254px;
-    transition: all 0.2s;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
-    margin-top: 60px;
-  }
-  
-  .card-inner {
-    width: inherit;
-    height: inherit;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-  }
-  
-
-  
-  .circle {
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(blue, #71b8fc);
-    border-radius: 50%;
-    position: absolute;
-    animation: move-up6 2s ease-in infinite alternate-reverse;
-  }
-  
-  .circle:nth-child(1) {
-    top: -25px;
-    left: -35px;
-  }
-  
-  .circle:nth-child(2) {
-    bottom: -45px;
-    right: -50px;
-    animation-name: move-down1;
-  }
-
-  .card-inner p{
-    font-size: 20px;
-  }
-  
-  @keyframes move-up6 {
-    to {
-      transform: translateY(-10px);
-    }
-  }
-  
-  @keyframes move-down1 {
-    to {
-      transform: translateY(10px);
-    }
-  }
-
-.prom{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
-    overflow-x: auto;
-    margin-bottom: 40px;
-    margin-left: 20px;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     margin: 0 auto;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.prom1{
+.shadow {
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgb(190, 190, 190),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.prom{
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
@@ -217,7 +166,8 @@ body {
     color: black;
     margin-right: 20px;
     margin-bottom: 20px;
-}
+    
+  }
   
   .promo:hover {
     border: 1px solid black;
@@ -230,11 +180,7 @@ body {
   }
 
   h1{
-    margin-left: 20px;
-  }
-
-  .pr{
-    margin-top:450px; 
+    margin-left: 20px; 
   }
 
  /* Estilos para pantallas más pequeñas que 600 píxeles de ancho */
@@ -269,88 +215,154 @@ body {
 
 
 
-.container__footer{
-    max-width: 1200px;
-    margin: 0 auto;
+/* Sección del pie de pagina (footer) */
 
-}
-
-.footer{
+footer{
+    background-color: #000000;
+  }
+  
+  .container__footer {
     background-color: black;
-    padding: 50px;
-}
-
-.footer-row{
+    color: white;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     flex-wrap: wrap;
-}
-
-.footer-links{
-   width: 25%;
-   padding: 0 15px;
-}
-
-.footer-links h4{
-    font-size: 20px;
-    color: white;
-    margin-bottom: 25px;
-    font-weight: 500;
-    border-bottom: 2px solid #0003cc;
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-
-.footer-links ul li a{
-    font-size: 18px;
-    text-decoration: none;
-    color: white;
-    display: block;
+  }
+  
+  .box__footer {
+    flex-basis: calc(33.33% - 10px); 
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .box__footer h2 {
     margin-bottom: 15px;
-    transition: all .3s ease;
-
-
-}
-
-
-.footer-links ul li a:hover{
-    color: #ffffff;
-    padding-left: 6px;
-}
-
-
-
-.social-links a {
-  display: inline-block;
-  min-height: 40px;
-  width: 400px;
-  background-color: #333;
-  margin: 0 10px 10px 0;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-  color: #ffffff;
-  transition: all .5s ease;
-}
-
-.derechos{
+    color: white; /* Color blanco para los títulos h2 */
+  }
+  
+  .box__footer ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; 
+  }
+  
+  .box__footer li {
+    margin-bottom: 1px;
+    font-size: 20px;
+    color: white; /* Color blanco para los elementos de la lista */
+  }
+  
+  .box__footer a {
     color: white;
+    text-decoration: none;
+  }
+  
+  .box__footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .box__footer .logo {
     text-align: center;
-    
-}
-
-.social-links a:hover{
-background-color: #1d00a0;
-}
-
-@media(max-width:991px){
-    .footer-row{
-        text-align: center;
+  }
+  
+  .box__footer .logo img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+  
+  .box__footer #social {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 24px;
+    padding-top: 40px;
+    order: 3; 
+  }
+  
+  .box__footer .social-icons {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .box__footer .social-icons a {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .box__footer .information {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 10%; 
+    text-align: center; 
+  }
+  
+  .box__footer .information a {
+    margin-bottom: 10px;
+  }
+  
+  .box__copyright {
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: 20px;
+    color: white; /* Color blanco para el texto del pie de página */
+  }
+  
+  
+  /* Estilos para pantallas pequeñas o móviles */
+  @media screen and (max-width: 768px) {
+    .container__footer {
+        flex-direction: column;
+        align-items: center;
     }
-
-
-    .footer-links{
-        width: 100%;
+  
+    .box__footer {
+        flex-basis: 100%; /* Ocupar el ancho completo en pantallas pequeñas */
+        margin: 0; 
+    }
+  
+    .box__footer #social {
+        align-items: flex-start; /* Alineado a la izquierda en pantallas pequeñas */
+    }
+  
+    .box__footer .information {
+        margin: 0; /* Eliminamos el margen en pantallas pequeñas */
+        text-align: center; 
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media screen and (min-width: 769px) {
+    .container__footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  
+    .box__footer {
+        flex-basis: calc(33.33% - 10px); 
         margin-bottom: 30px;
     }
-}
+  
+    .box__footer #social {
+        align-items: flex-end;
+    }
+  
+    .box__footer .information {
+        margin-left: 10%; 
+    }
+  }
+  
