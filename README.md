@@ -35,3 +35,4 @@ Página web del Centro Educativo Emma Balaguer de Vallejos, con sistema de admin
 | Name         | Contribution         | Email                     |
 | ------------ | -------------------- | ------------------------- |
 | Jack Pacheco | Developer & Designer | <jackdamiolixp@gmail.com> |
+| Lismel Gómez | Developer & Designer | <soyymely@gmail.com>      |
