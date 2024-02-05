@@ -217,7 +217,8 @@ const firebaseManager = new FirebaseManage();
           ))
         : (t.dataset.sbCanSubmit = "yes");
     });
-    const y = () => {
+    const y = (e) => {
+        e.preventDefault();
         const formData = {
           fullName: document.querySelector("#fullName").value,
           email: document.querySelector("#contactEmail").value,
