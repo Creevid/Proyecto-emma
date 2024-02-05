@@ -9,7 +9,6 @@ Página web del Centro Educativo Emma Balaguer de Vallejos, con sistema de admin
 ## Componentes
 
 - Inicio.
-- 404.
 - Sobre Nosotros.
 - Filosofía.
 - Visítanos.
@@ -21,6 +20,7 @@ Página web del Centro Educativo Emma Balaguer de Vallejos, con sistema de admin
 - Notificaciones.
 - Administrar Egresados.
 - Administrar Noticias.
+- Página no Encontrada.
 
 ## Tecnologías
 

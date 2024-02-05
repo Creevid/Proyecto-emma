@@ -4,6 +4,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   signOut,
+  sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 import {
   getDatabase,
@@ -37,17 +38,11 @@ const analytics = getAnalytics(app);
 export class FirebaseManage {
   async authenticate(email, password) {
     try {
-      await signInWithEmailAndPassword(auth, email, password)
-        .then((usr) => {
-          sessionStorage.setItem("MY_USER", JSON.stringify(usr));
-        })
-        .catch((error) => {
-          Swal.fire({
-            title: "Ha ocurrido un error!",
-            text: error.message,
-            icon: "error",
-          });
-        });
+      return await signInWithEmailAndPassword(auth, email, password).then(
+        (usr) => {
+          return usr;
+        }
+      );
     } catch (error) {
       console.error(error.message);
       // Mostrar alerta de error de inicio de sesión
@@ -56,6 +51,8 @@ export class FirebaseManage {
         title: "Error al iniciar sesión",
         text: error.message,
       });
+
+      return false;
     }
   }
 
@@ -64,6 +61,25 @@ export class FirebaseManage {
       await signOut(auth).then(() => sessionStorage.removeItem("MY_USER"));
     } catch (error) {
       console.error(error.message);
+    }
+  }
+
+  async resetPassword(email) {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      Swal.fire({
+        icon: "success",
+        title: "Correo electrónico enviado",
+        text: "Se ha enviado un correo electrónico de restablecimiento de contraseña a la dirección proporcionada.",
+      });
+    } catch (error) {
+      console.error(
+        "Error al enviar el correo electrónico de restablecimiento de contraseña:",
+        error
+      );
+      throw new Error(
+        "Error al enviar el correo electrónico de restablecimiento de contraseña."
+      );
     }
   }
 
@@ -104,25 +120,25 @@ export class FirebaseManage {
     try {
       const dataRef = ref(database, "contactUs");
       return get(dataRef).then((snapshot) => {
-        const newsList = [];
+        const contactUsList = [];
         if (snapshot.exists()) {
           snapshot.forEach((child) => {
-            const newsKey = child.key;
-            const newsData = child.val();
+            const contactUsKey = child.key;
+            const contactUsData = child.val();
 
-            const newsObject = {
-              id: newsKey,
-              email: newsData.email,
-              fullName: newsData.fullName,
-              phone: newsData.phone,
-              message: newsData.message,
-              date: newsData.date,
+            const contactUsObject = {
+              id: contactUsKey,
+              email: contactUsData.email,
+              fullName: contactUsData.fullName,
+              phone: contactUsData.phone,
+              message: contactUsData.message,
+              date: contactUsData.date,
             };
 
-            newsList.push(newsObject);
+            contactUsList.unshift(contactUsObject);
           });
         }
-        return newsList;
+        return contactUsList;
       });
     } catch (error) {
       console.error(error.message);
@@ -153,6 +169,30 @@ export class FirebaseManage {
           });
         }
         return newsList;
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  showNewsDataById(id) {
+    try {
+      const dataRef = ref(database, `news/${id}`);
+      let newsObject = {};
+      return get(dataRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const newsData = snapshot.val();
+          newsObject = {
+            id: id,
+            author: newsData.author,
+            content: newsData.content,
+            date: newsData.date,
+            frontImage: newsData.frontImage,
+            hour: newsData.hour,
+            title: newsData.title,
+          };
+        }
+        return newsObject;
       });
     } catch (error) {
       console.error(error.message);

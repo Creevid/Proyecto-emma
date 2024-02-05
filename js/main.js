@@ -57,11 +57,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
     showNews();
   }
 
+  if (window.location.pathname === "/pages/full-news.html") {
+    showNewsDetail();
+  }
+
   // Add EventListener on Admin News Page
   if (window.location.pathname === "/pages/admin-news.html") {
     const adminNewsForm = document
       .querySelector("#news-form")
       .addEventListener("submit", (event) => saveNewsData(event));
+  }
+
+  if (window.location.pathname === "/pages/profile.html") {
+    const changePasswordBtn = document
+      .querySelector("#changePassword")
+      .addEventListener("click", () => changePassword());
+    const loggedUser = document.querySelector("#loggedUser");
+    loggedUser.textContent = JSON.parse(user).user.email;
   }
 });
 
@@ -119,7 +131,21 @@ const loginModal = async () => {
 
       try {
         const account = new FirebaseManage();
-        account.authenticate(email, password).then(() => hideAndShowElements());
+        account
+          .authenticate(email, password)
+          .then((usr) => {
+            if (usr) {
+              sessionStorage.setItem("MY_USER", JSON.stringify(usr));
+              hideAndShowElements();
+            }
+          })
+          .catch((error) => {
+            Swal.fire({
+              title: "Ha ocurrido un error!",
+              text: error.message,
+              icon: "error",
+            });
+          });
         return true;
       } catch (error) {
         Swal.showValidationMessage(
@@ -162,14 +188,29 @@ const logout = () => {
   }
 };
 
+const changePassword = async () => {
+  const { value: email } = await Swal.fire({
+    title: "Cambiar Contraseña",
+    input: "email",
+    inputLabel: "Ingresar correo electrónico",
+    inputPlaceholder: "ejemplo@emma.edu",
+    confirmButtonText: "Enviar",
+    inputAttributes: {
+      autocapitalize: "off",
+      autocorrect: "off",
+    },
+  });
+  if (email) {
+    const account = new FirebaseManage();
+    account.resetPassword(email);
+  }
+};
+
 const hideAndShowElements = () => {
   const user = sessionStorage.getItem("MY_USER");
   const profileMenu = document.querySelector("#profile");
   const loginBtn = document.querySelector("#login-btn");
   profileMenu.classList.toggle("d-none");
-  if (user) {
-    profileMenu.children[0].textContent = JSON.parse(user).user.email;
-  }
   loginBtn.classList.toggle("d-none");
 };
 
@@ -218,35 +259,44 @@ const showNews = () => {
       // Clonar el template del card
       const cardClone = cardTemplate.content.cloneNode(true);
       // Obtener referencias a los elementos del card
-      const card = cardClone.querySelector(".card");
-      const cardImage = cardClone.querySelector(".news-img");
+      const card = cardClone.querySelector(".news-card");
+      const cardImage = cardClone.querySelector(".news-card-image");
       const cardTitle = cardClone.querySelector(".card-title");
       const cardContentPreview = cardClone.querySelector(".content-preview");
-      const cardContentFull = cardClone.querySelector(".content-full");
-      const toggleContentBtn = cardClone.querySelector(".toggle-content");
+      const cardAuthor = cardClone.querySelector(".card-author");
+      const cardDate = cardClone.querySelector(".card-date");
+      const cardBtn = cardClone.querySelector(".show-more");
 
       // Establecer los valores del card
       card.style.Height = "210px";
-      card.st;
       cardImage.src = news.frontImage;
       cardTitle.textContent = news.title;
       cardContentPreview.textContent = `${news.content.substring(0, 100)}...`;
-      cardContentFull.textContent = news.content;
-
-      // Agregar evento de clic al botón "ver más"
-      toggleContentBtn.addEventListener("click", () => {
-        cardContentPreview.classList.toggle("d-none");
-        cardContentFull.classList.toggle("d-none");
-        toggleContentBtn.textContent = cardContentPreview.classList.contains(
-          "d-none"
-        )
-          ? "Ver menos"
-          : "Ver más";
-      });
+      cardAuthor.textContent = news.author;
+      cardDate.textContent = `${news.date} (${news.hour})`;
+      cardBtn.setAttribute("href", `./full-news.html?id=${news.id}`);
 
       // Agregar el card al contenedor
       cardContainer.appendChild(cardClone);
     });
+  });
+};
+
+const showNewsDetail = async () => {
+  const db = new FirebaseManage();
+  const urlParams = new URLSearchParams(window.location.search);
+  const newsId = urlParams.get("id");
+  db.showNewsDataById(newsId).then((data) => {
+    console.log(data);
+    const newsHeader = document.querySelector("#news-header");
+    const newsTitle = document.querySelector("#news-title");
+    const newsDetail = document.querySelector("#news-detail");
+    const newsContainer = document.querySelector("#news-container");
+
+    newsHeader.style.backgroundImage = `url("${data.frontImage}")`;
+    newsTitle.textContent = data.title;
+    newsDetail.innerHTML = `<p>${data.author}</p><p>${data.date} (${data.hour})</p>`;
+    newsContainer.innerHTML = `<p>${data.content}</p>`;
   });
 };
 

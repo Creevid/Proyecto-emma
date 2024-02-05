@@ -38,16 +38,16 @@
           <li class="nav-item"><a class="nav-link" href="../index.html#philosophy">Filosofía</a></li>
           <li class="nav-item"><a class="nav-link" href="../index.html#visit">Visítanos</a></li>
           <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contáctanos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#graduates">Egresados</a></li>
+          <li class="nav-item"><a class="nav-link" href="./graduates.html">Egresados</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Notícias</a></li>
           <li id="profile" class="nav-item dropdown d-none">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{ Username }}
+              Administrador
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#profile">Perfil</a></li>
+              <li><a class="dropdown-item" href="./profile.html">Perfil</a></li>
               <li><a class="dropdown-item" href="./notifications.html">Notificaciones</a></li>
-              <li><a class="dropdown-item" href="#add-graduates">Administrar Egresados</a></li>
+              <li><a class="dropdown-item" href="./admin-graduates.html">Administrar Egresados</a></li>
               <li><a class="dropdown-item" href="./admin-news.html">Administrar Noticias</a></li>
               <li><a id="logout" class="dropdown-item" href="#">Cerrar Sesión</a></li>
             </ul>
@@ -72,29 +72,30 @@
           <p class="text-white-75 mb-5">¡Bienvenidos a nuestra sección de noticias educativas! Mantente al día con las
             últimas novedades, eventos y logros dentro de nuestra comunidad educativa. Aquí encontrarás información
             relevante y emocionante sobre nuestros estudiantes, profesores, proyectos y actividades.</p>
-          <a class="btn btn-primary btn-xl" href="#news">Leer Más</a>
         </div>
       </div>
     </div>
   </header>
 
   <!-- News Container -->
-  <section class="p-4">
-    <div id="news-container" class="row">
+  <section class="news-section container p-4">
+    <div id="news-container">
       <template id="cardTemplate">
-        <div class="col">
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-5">
-                <img class="news-img img-fluid rounded-start" alt="Front Image">
-              </div>
-              <div class="col-md-7">
-                <div class="card-body">
-                  <h5 class="card-title"></h5>
-                  <p class="card-text content-preview"></p>
-                  <p class="card-text d-none content-full"></p>
-                  <button class="btn btn-primary btn-sm toggle-content">Ver Noticia</button>
-                </div>
+        <div class="news-card mb-3">
+          <div class="card-header">
+            <img src="" alt="card-image" class="news-card-image" width="600">
+          </div>
+          <div class="news-card-body">
+            <h4 class="card-title"></h4>
+            <p class="content-preview"></p>
+            <a class="show-more" href="#">Ver más...</a>
+          </div>
+          <div class="card-footer">
+            <div class="user">
+              <img src="../assets/avatar.svg" alt="user-image" class="user-image">
+              <div class="user-info">
+                <h6 class="card-author"></h6>
+                <small class="card-date"></small>
               </div>
             </div>
           </div>
