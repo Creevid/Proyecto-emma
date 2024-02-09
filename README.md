@@ -13,12 +13,10 @@ Página web del Centro Educativo Emma Balaguer de Vallejos, con sistema de admin
 - Filosofía.
 - Visítanos.
 - Contáctanos.
-- Egresados.
 - Noticias.
 - Inicio de Sesión.
 - Perfíl.
 - Notificaciones.
-- Administrar Egresados.
 - Administrar Noticias.
 - Página no Encontrada.
 
@@ -32,8 +30,8 @@ Página web del Centro Educativo Emma Balaguer de Vallejos, con sistema de admin
 
 ## Contributions
 
-| Name         | Contribution         | Email                               |
-| ------------ | -------------------- | ----------------------------------- |
-| Jack Pacheco | Developer & Designer | <jackdamiolixp@gmail.com>           |
-| Lismel Gómez | Developer & Designer | <soyymely@gmail.com>                |
-| Miguel Jansen| Developer & Designer | <migueldavidjansenalfredo@gmail.com>|
+| Name          | Contribution         | Email                                |
+| ------------- | -------------------- | ------------------------------------ |
+| Jack Pacheco  | Developer & Designer | <jackdamiolixp@gmail.com>            |
+| Lismel Gómez  | Developer & Designer | <soyymely@gmail.com>                 |
+| Miguel Jansen | Developer & Designer | <migueldavidjansenalfredo@gmail.com> |

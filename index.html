@@ -8,7 +8,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
@@ -34,11 +34,11 @@
         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto my-2 my-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#page-top">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="./pages/about.html">Sobre Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="#philosophy">Filosofía</a></li>
           <li class="nav-item"><a class="nav-link" href="#visit">Visítanos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contáctanos</a></li>
-          <li class="nav-item"><a class="nav-link" href="./pages/graduates.html">Egresados</a></li>
           <li class="nav-item"><a class="nav-link" href="./pages/news.html">Notícias</a></li>
           <li id="profile" class="nav-item dropdown d-none">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,7 +47,6 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="./pages/profile.html">Perfil</a></li>
               <li><a class="dropdown-item" href="./pages/notifications.html">Notificaciones</a></li>
-              <li><a class="dropdown-item" href="./pages/admin-graduates.html">Administrar Egresados</a></li>
               <li><a class="dropdown-item" href="./pages/admin-news.html">Administrar Noticias</a></li>
               <li><a id="logout" class="dropdown-item" href="#">Cerrar Sesión</a></li>
             </ul>
@@ -73,26 +72,43 @@
             excelencia educativa y la formación integral de
             nuestros estudiantes. Fundada con una visión vanguardista y una profunda dedicación al desarrollo humano,
             nuestra institución se ha convertido en un faro de conocimiento y valores.</p>
-          <a class="btn btn-primary btn-xl" href="#about">Leer Más</a>
+          <a class="btn btn-primary btn-xl" href="./pages/about.html">Leer Más</a>
         </div>
       </div>
     </div>
   </header>
   <!-- About -->
-  <section class="page-section bg-primary" id="about">
-    <div class="container px-4 px-lg-5">
+  <section class="bg-primary py-5" id="about">
+    <div class="container">
       <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">Sobre Nosotros</h2>
+          <h2 class="text-white mt-0">Últimas Noticias</h2>
           <hr class="divider divider-light" />
-          <p class="text-white-75 mb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi similique obcaecati quis veritatis nobis
-            voluptatum, laborum quia ad corporis! Reiciendis aliquid quibusdam nostrum exercitationem sit tempore itaque
-            repellendus atque voluptatum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi similique
-            obcaecati quis veritatis nobis
-            voluptatum, laborum quia ad corporis! Reiciendis aliquid quibusdam nostrum exercitationem sit tempore itaque
-            repellendus atque voluptatum.
-          </p>
+        </div>
+        <div class="col-12">
+          <div id="main-news-container">
+            <template id="cardTemplate">
+              <div class="news-card mb-3">
+                <div class="card-header">
+                  <img src="" alt="card-image" class="news-card-image" width="600">
+                </div>
+                <div class="news-card-body">
+                  <h4 class="card-title"></h4>
+                  <p class="content-preview"></p>
+                  <a class="show-more" href="#">Ver más...</a>
+                </div>
+                <div class="card-footer">
+                  <div class="user">
+                    <img src="../assets/avatar.svg" alt="user-image" class="user-image">
+                    <div class="user-info">
+                      <h6 class="card-author"></h6>
+                      <small class="card-date"></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -206,9 +222,25 @@
         </div>
       </div>
       <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-lg-4 text-center mb-5 mb-lg-0">
-          <i class="bi-phone fs-2 mb-3 text-muted"></i>
-          <div>+1 (809) 590-5808</div>
+        <div class="col-3 text-center">
+          <a href="https://www.instagram.com/emmabalaguercentro?igsh=YjRlYW4zM2xjZDJt" target="_blank">
+            <i class="bi-instagram fs-2 text-muted"></i>
+          </a>
+        </div>
+        <div class="col-3 text-center">
+          <a href="https://www.facebook.com/emma.balaguer.9?mibextid=ZbWKwL" target="_blank">
+            <i class="bi-facebook fs-2 text-muted"></i>
+          </a>
+        </div>
+        <div class="col-3 text-center">
+          <a href="#">
+            <i class="bi-tiktok fs-2 text-muted"></i>
+          </a>
+        </div>
+        <div class="col-3 text-center">
+          <a href="#">
+            <i class="bi-youtube fs-2 text-muted"></i>
+          </a>
         </div>
       </div>
     </div>
