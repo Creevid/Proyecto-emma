@@ -55,6 +55,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
     hideAndShowElements();
   }
 
+  // Muestra noticias en la página principal
+  if (
+    window.location.pathname === "/index.html" ||
+    window.location.pathname === "/"
+  ) {
+    showLatestNews();
+  }
+
   // Muestra notificaciones de ContactUs en la página de notificaciones
   if (window.location.pathname === "/pages/notifications.html") {
     showNotifications();
@@ -165,6 +173,7 @@ const loginModal = async () => {
             if (usr) {
               sessionStorage.setItem("MY_USER", JSON.stringify(usr));
               hideAndShowElements();
+              location.reload();
             }
           })
           .catch((error) => {
@@ -267,8 +276,6 @@ const changePassword = async () => {
  * @function hideAndShowElements
  */
 const hideAndShowElements = () => {
-  // Obtiene el estado de inicio de sesión del usuario desde sessionStorage
-  const user = sessionStorage.getItem("MY_USER");
   // Busca elementos en el DOM que representan el menú de perfil y el botón de inicio de sesión
   const profileMenu = document.querySelector("#profile");
   const loginBtn = document.querySelector("#login-btn");
@@ -327,6 +334,8 @@ const showNotifications = () => {
  * @function showNews
  */
 const showNews = () => {
+  // Obtiene el estado de inicio de sesión del usuario desde sessionStorage
+  const user = sessionStorage.getItem("MY_USER");
   // Crea una instancia de FirebaseManage para interactuar con la base de datos
   const db = new FirebaseManage();
   // Obtiene los datos de noticias utilizando la función showNewsData de FirebaseManage
@@ -347,6 +356,7 @@ const showNews = () => {
       const cardAuthor = cardClone.querySelector(".card-author");
       const cardDate = cardClone.querySelector(".card-date");
       const cardBtn = cardClone.querySelector(".show-more");
+      const deleteBtn = cardClone.querySelector(".delete-news");
       // Establece los valores del card con los datos de la noticia actual
       card.style.Height = "210px";
       cardImage.src = news.frontImage;
@@ -355,6 +365,61 @@ const showNews = () => {
       cardAuthor.textContent = news.author;
       cardDate.textContent = `${news.date} (${news.hour})`;
       cardBtn.setAttribute("href", `./full-news.html?id=${news.id}`);
+      // Valida si el usuario ha iniciado sesión
+      if (user != null) {
+        deleteBtn.classList.remove("d-none");
+        // Agrega la función de eliminar a cada botón
+        deleteBtn.addEventListener("click", (event) => {
+          // Evita el comportamiento predeterminado del enlace
+          event.preventDefault();
+          // Llama a la función de eliminación pasando el ID de la noticia como argumento
+          deleteNews(news.id);
+        });
+      }
+      // Agrega el card al contenedor
+      cardContainer.appendChild(cardClone);
+    });
+  });
+};
+
+/**
+ * Función para mostrar noticias en la página principal.
+ * Utiliza la función showNewsData de FirebaseManage para obtener los datos de Firebase y renderizarlos en la interfaz de Inicio.
+ * @function showNews
+ */
+const showLatestNews = () => {
+  // Crea una instancia de FirebaseManage para interactuar con la base de datos
+  const db = new FirebaseManage();
+  // Obtiene los datos de noticias utilizando la función showNewsData de FirebaseManage
+  db.showNewsData().then((data) => {
+    // Busca el contenedor donde se mostrarán las noticias
+    const cardContainer = document.querySelector("#main-news-container");
+    // Busca el template de card para las noticias
+    const cardTemplate = document.querySelector("#cardTemplate");
+
+    // Reduce la data a las últimas cuatro noticias
+    const latestNews = data.slice(-4);
+
+    // Itera sobre los datos de las noticias y crea un elemento HTML para cada una
+    latestNews.forEach((news) => {
+      // Clona el template del card
+      const cardClone = cardTemplate.content.cloneNode(true);
+      // Obtiene referencias a los elementos del card
+      const card = cardClone.querySelector(".news-card");
+      const cardImage = cardClone.querySelector(".news-card-image");
+      const cardTitle = cardClone.querySelector(".card-title");
+      const cardContentPreview = cardClone.querySelector(".content-preview");
+      const cardAuthor = cardClone.querySelector(".card-author");
+      const cardDate = cardClone.querySelector(".card-date");
+      const cardBtn = cardClone.querySelector(".show-more");
+      // Establece los valores del card con los datos de la noticia actual
+      card.style.Height = "210px";
+      cardImage.src = news.frontImage;
+      cardTitle.textContent = news.title;
+      cardContentPreview.textContent = `${news.content.substring(0, 100)}...`;
+      cardAuthor.textContent = news.author;
+      cardDate.textContent = `${news.date} (${news.hour})`;
+      cardBtn.setAttribute("href", `./pages/full-news.html?id=${news.id}`);
       // Agrega el card al contenedor
       cardContainer.appendChild(cardClone);
     });
@@ -437,6 +502,46 @@ const saveNewsData = async (event) => {
     title: "Excelente!",
     text: "Noticia Creada Correctamente",
     icon: "success",
+  });
+};
+
+/**
+ * Función para eliminar una noticia.
+ * Muestra un mensaje de confirmación al usuario y, si confirma, elimina la noticia de Firebase.
+ * @param {string} id - El ID de la noticia que se va a eliminar.
+ */
+const deleteNews = (id) => {
+  // Muestra un mensaje de confirmación utilizando SweetAlert
+  Swal.fire({
+    title: "¿Desea eliminar la noticia?",
+    text: "Si la elimina no podrá recuperarla nuevamente",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Eliminar",
+  }).then(async (result) => {
+    // Verifica si el usuario ha confirmado la eliminación
+    if (result.isConfirmed) {
+      try {
+        // Crea una instancia de FirebaseManage para interactuar con la base de datos
+        const db = new FirebaseManage();
+        db.deleteNewsData(id);
+        // Muestra un mensaje de éxito utilizando SweetAlert
+        Swal.fire({
+          icon: "success",
+          title: "¡Eliminada!",
+          text: "La noticia ha sido eliminada correctamente.",
+        }).then((_) => location.reload());
+      } catch (error) {
+        // En caso de error, muestra un mensaje de error utilizando SweetAlert
+        Swal.fire(
+          "Error",
+          "No se pudo eliminar la noticia. Por favor, inténtelo de nuevo.",
+          "error"
+        );
+        console.error("Error al eliminar la noticia:", error);
+      }
+    }
   });
 };
 

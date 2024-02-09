@@ -12,6 +12,7 @@ import {
   ref,
   push,
   get,
+  remove,
 } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
 import {
   getStorage,
@@ -197,7 +198,7 @@ export class FirebaseManage {
               title: newsData.title,
             };
 
-            newsList.push(newsObject); // Agrega los datos formateados a la lista
+            newsList.unshift(newsObject); // Agrega los datos formateados a la lista
           });
         }
         return newsList; // Devuelve la lista de datos de noticias formateados
@@ -230,6 +231,18 @@ export class FirebaseManage {
         }
         return newsObject; // Devuelve los datos de la noticia formateados
       });
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  // Método para eliminar una noticia de la base de datos de Firebase
+  async deleteNewsData(id) {
+    try {
+      // Referencia al nodo de la noticia específica utilizando su ID
+      const newsRef = ref(database, `news/${id}`);
+      // Elimina la noticia del nodo correspondiente en la base de datos
+      await remove(newsRef);
     } catch (error) {
       console.error(error.message);
     }

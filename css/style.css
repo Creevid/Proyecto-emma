@@ -12854,6 +12854,15 @@ header.nm-header .h1 {
   justify-content: center;
 }
 
+#main-news-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-block: 2rem;
+  gap: 2rem;
+}
+
 #news-container {
   display: flex;
   flex-wrap: wrap;
@@ -12870,6 +12879,7 @@ header.nm-header .h1 {
   overflow: hidden;
   box-shadow: 0 .1rem 1rem rgba(13, 72, 161, 0.1);
   border-radius: 1em;
+  background-color: #fff;
 
 }
 
@@ -12887,6 +12897,13 @@ header.nm-header .h1 {
   gap: .5rem;
 }
 
+.news-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-top: auto;
+}
+
 .news-card-body h4 {
   font-size: 1.5rem;
   text-transform: capitalize;
@@ -12895,7 +12912,7 @@ header.nm-header .h1 {
 .card-footer {
   display: flex;
   padding: 1rem;
-  margin-top: auto;
+  margin-top: 10px;
 }
 
 .user {
@@ -12947,7 +12964,23 @@ header.profile-header .h1 {
 }
 
 .show-more:hover {
-  color: #e9edf3;
+  color: #fff;
+  background-color: #0b2d61;
+}
+
+.delete-news {
+  width: 65%;
+  margin: auto;
+  color: #fff;
+  text-align: center;
+  background-color: #dc3545;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.delete-news:hover {
+  color: #fff;
+  background-color: #831b25;
 }
 
 .news-header {
@@ -12955,4 +12988,11 @@ header.profile-header .h1 {
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+}
+
+.about-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
 }
