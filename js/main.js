@@ -50,9 +50,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   // Valida si el usuario está autenticado y muestra/oculta elementos del DOM según corresponda
-  const user = sessionStorage.getItem("MY_USER");
-  if (user != null) {
+  if (isAuthenticated()) {
     hideAndShowElements();
+  } else {
+    // Si el usuario no está autenticado y trata de acceder a ciertas rutas, redirige al index
+    const restrictedPaths = [
+      "/pages/notifications.html",
+      "/pages/admin-news.html",
+      "/pages/profile.html",
+    ];
+    if (restrictedPaths.includes(window.location.pathname)) {
+      window.location.href = "../index.html"; // Redirige al index
+      return;
+    }
   }
 
   // Muestra noticias en la página principal
@@ -334,8 +344,6 @@ const showNotifications = () => {
  * @function showNews
  */
 const showNews = () => {
-  // Obtiene el estado de inicio de sesión del usuario desde sessionStorage
-  const user = sessionStorage.getItem("MY_USER");
   // Crea una instancia de FirebaseManage para interactuar con la base de datos
   const db = new FirebaseManage();
   // Obtiene los datos de noticias utilizando la función showNewsData de FirebaseManage
@@ -366,7 +374,7 @@ const showNews = () => {
       cardDate.textContent = `${news.date} (${news.hour})`;
       cardBtn.setAttribute("href", `./full-news.html?id=${news.id}`);
       // Valida si el usuario ha iniciado sesión
-      if (user != null) {
+      if (isAuthenticated()) {
         deleteBtn.classList.remove("d-none");
         // Agrega la función de eliminar a cada botón
         deleteBtn.addEventListener("click", (event) => {
@@ -554,3 +562,7 @@ const loginModalBtn = document
 const logoutBtn = document
   .querySelector("#logout")
   .addEventListener("click", () => logout());
+
+const isAuthenticated = () => {
+  return sessionStorage.getItem("MY_USER") !== null;
+};

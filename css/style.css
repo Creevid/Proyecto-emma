@@ -13000,10 +13000,10 @@ header.profile-header .h1 {
 /* Estilos para barras de desplazamiento */
 ::-webkit-scrollbar {
   width: 0.6rem;
-  background:#0d48a1;
+  background: #0d48a1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
+  background: #0d6efd;
   border-radius: 5rem;
 }
