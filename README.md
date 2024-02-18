@@ -36,3 +36,4 @@ Página web del Centro Educativo Emma Balaguer de Vallejos, con sistema de admin
 | Lismel Gómez  | Developer & Designer | <soyymely@gmail.com>                 |
 | Miguel Jansen | Developer & Designer | <migueldavidjansenalfredo@gmail.com> |
 |Joshua Martinez| Developer & Designer | <Joshuamcaba@gmail.com>              |
+|Jostin Bautista| Developer & Designer | <jostinbautista10@gmail.com>         |
